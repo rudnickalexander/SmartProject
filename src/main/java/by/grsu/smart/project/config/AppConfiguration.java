@@ -18,7 +18,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"by.grsu.smart.project.service", "by.grsu.smart.project.dao.project"})
+@ComponentScan({"by.grsu.smart.project.service", "by.grsu.smart.project.dao", "by.grsu.smart.project.parser"})
 @PropertySource(value = {"classpath:database/database.properties", "classpath:database/hibernate.properties",
                          "classpath:database/jdbc.properties"})
 public class AppConfiguration {

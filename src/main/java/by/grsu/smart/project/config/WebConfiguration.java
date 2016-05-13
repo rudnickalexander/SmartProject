@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan({"by.grsu.smart.project.controller", "by.grsu.smart.project.service",
-                "by.grsu.smart.project.dao.project"})
+                "by.grsu.smart.project.dao", "by.grsu.smart.project.parser"})
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
