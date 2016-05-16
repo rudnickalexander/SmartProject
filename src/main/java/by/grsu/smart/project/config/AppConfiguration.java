@@ -30,7 +30,7 @@ public class AppConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
-        sessionFactoryBean.setPackagesToScan("com.issoft.training");
+        sessionFactoryBean.setPackagesToScan("by.grsu.smart.project");
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
         return sessionFactoryBean;
     }
@@ -40,8 +40,8 @@ public class AppConfiguration {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-        dataSource.setUsername(environment.getRequiredProperty("user"));
-        dataSource.setPassword(environment.getRequiredProperty("password"));
+        dataSource.setUsername(environment.getRequiredProperty("db.user"));
+        dataSource.setPassword(environment.getRequiredProperty("db.password"));
         return dataSource;
     }
 
@@ -56,7 +56,7 @@ public class AppConfiguration {
     @Bean
     public SpringLiquibase liquibase() {
         SpringLiquibase springLiquibase = new SpringLiquibase();
-        springLiquibase.setChangeLog("classpath:liquibase/changelog/db.changelog-master.xml");
+        springLiquibase.setChangeLog("classpath:liquibase/db.changelog-master.xml");
         springLiquibase.setDataSource(dataSource());
         return springLiquibase;
     }

@@ -13,6 +13,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        context.register(AppConfiguration.class);
         context.register(WebConfiguration.class);
         context.register(SecurityConfiguration.class);
         context.setServletContext(servletContext);
