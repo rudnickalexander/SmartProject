@@ -45,7 +45,6 @@ public class ProjectServiceImpl implements ProjectService {
 
         }
 
-        System.out.println(responses);
         return responses;
     }
 
@@ -72,6 +71,16 @@ public class ProjectServiceImpl implements ProjectService {
         double profitabilityIndex = netPresentValue / investedCapital;
 
         return new Project(calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod, dynamicPaybackPeriod, netPresentValue, 16d, profitabilityIndex);
+    }
+
+    @Override
+    public void saveProject(Project project) {
+        projectDAO.save(project);
+    }
+
+    @Override
+    public List<Project> getLatestProjects() {
+        return projectDAO.getLatest();
     }
 
     private Double calculateDCF(double cashFlow, double bettingShopDiscount, int year) {

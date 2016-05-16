@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="AlexanderRudnik" id="create-user-table" context="schemeData">
+        <sql>
+            CREATE TABLE IF NOT EXISTS User(
+            id INT(10) NOT NULL AUTO_INCREMENT,
+            name VARCHAR(50) NOT NULL,
+            password VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            phone VARCHAR(20) NOT NULL,
+
+            PRIMARY KEY(id)
+            )
+        </sql>
+        <rollback>
+            DROP TABLE IF EXISTS User;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

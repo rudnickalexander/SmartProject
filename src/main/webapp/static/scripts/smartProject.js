@@ -76,26 +76,30 @@ $(document).ready(function () {
                 });
 
                 var project = data.project;
-                //$('#projectTable').find('tbody tr').each(function() {
-                //    console.log(this);
-                //    $(this).find('td:eq(1)').text(project.netPresentValue);
-                //    $(this).find('td:eq(1)').text(project.internalRateOfReturn);
-                //    $(this).find('td:eq(1)').text(project.profitabilityIndex);
-                //    $(this).find('td:eq(1)').text(project.simplePaybackPeriod);
-                //    $(this).find('td:eq(1)').text(project.dynamicPaybackPeriod);
-                //});
 
-                $('#projectTable').find('tbody tr:eq(0)').find('td:eq(1)').text(project.netPresentValue);
-                $('#projectTable').find('tbody tr:eq(1)').find('td:eq(1)').text(project.internalRateOfReturn);
-                $('#projectTable').find('tbody tr:eq(2)').find('td:eq(1)').text(project.profitabilityIndex);
-                $('#projectTable').find('tbody tr:eq(3)').find('td:eq(1)').text(project.simplePaybackPeriod);
-                $('#projectTable').find('tbody tr:eq(4)').find('td:eq(1)').text(project.dynamicPaybackPeriod);
+                var $projectTable = $('#projectTable');
+
+                $projectTable.find('tbody tr:eq(0)').find('td:eq(1)').text(project.netPresentValue);
+                $projectTable.find('tbody tr:eq(1)').find('td:eq(1)').text(project.internalRateOfReturn);
+                $projectTable.find('tbody tr:eq(2)').find('td:eq(1)').text(project.profitabilityIndex);
+                $projectTable.find('tbody tr:eq(3)').find('td:eq(1)').text(project.simplePaybackPeriod);
+                $projectTable.find('tbody tr:eq(4)').find('td:eq(1)').text(project.dynamicPaybackPeriod);
             },
             error: function (data) {
                 data.preventDefault();
             }
         });
     });
+
+    $('.projectLine').click(function (event) {
+        $('#projectModal').modal('show');
+    });
+
+    $('#searchButton').click(function () {
+        for (var i = 0; i < 3; i++) {
+            $('#projectList').find('.projectLine:eq(' + i + ')').css('display', 'none');
+        }
+    })
 
 });
 

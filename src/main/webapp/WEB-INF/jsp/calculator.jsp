@@ -25,7 +25,7 @@
                     </p>
                 <li>
                     <p class="navbar-btn">
-                        <a href="/calculator" class="active btn bnt-default btn-lg">Калькулятор проекта</a>
+                        <a href="/calculator" class="active btn bnt-default btn-lg">Оценка проекта</a>
                     </p>
                 </li>
                 <li>
@@ -40,7 +40,7 @@
                 </li>
                 <li>
                     <p class="navbar-btn">
-                        <a href="/document" class="btn bnt-default btn-lg">Документация</a>
+                        <a href="/law" class="btn bnt-default btn-lg">Законодательство</a>
                     </p>
                 </li>
             </ul>
@@ -83,7 +83,7 @@
                 <div class="col-sm-offset-4 col-sm-1">
                     <input id="calculateButton" class="btn btn-submit btn-lg" type="button" value="Рассчитать">
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-offset-1 col-sm-1">
                     <input id="saveButton" class="btn btn-submit btn-lg" type="button" value="Сохранить">
                 </div>
             </div>

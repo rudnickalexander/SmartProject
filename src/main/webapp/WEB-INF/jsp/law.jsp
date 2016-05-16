@@ -8,7 +8,7 @@
     <link href="<c:url value="/static/styles/style.css" />" rel="stylesheet">
     <script src="<c:url value="/static/scripts/libs/jquery-1.12.1.min.js" />"></script>
     <script src="<c:url value="/static/scripts/smartProject.js" />"></script>
-    <title>Title</title>
+    <title>Laws</title>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -25,7 +25,7 @@
                 </p>
             <li>
                 <p class="navbar-btn">
-                    <a href="/calculator" class="btn bnt-default btn-lg">Калькулятор проекта</a>
+                    <a href="/calculator" class="btn bnt-default btn-lg">Оценка проекта</a>
                 </p>
             </li>
             <li>
@@ -40,7 +40,7 @@
             </li>
             <li>
                 <p class="navbar-btn">
-                    <a href="/document" class="active btn bnt-default btn-lg">Документация</a>
+                    <a href="/law" class="active btn bnt-default btn-lg">Законодательство</a>
                 </p>
             </li>
         </ul>

@@ -1,18 +1,54 @@
 package by.grsu.smart.project.entity;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "Project")
 public class Project {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "calculationHorizon")
     private Integer calculationHorizon; //горизонт расчета
+
+    @Column(name = "bettingShopDiscount")
     private Double bettingShopDiscount; //ставка дисконтирования
+
+    @Column(name = "investedCapital")
     private Double investedCapital;
+
+    @Column(name = "simplePaybackPeriod")
     private Integer simplePaybackPeriod; //простой срок окупаемости
+
+    @Column(name = "dynamicPaybackPeriod")
     private Integer dynamicPaybackPeriod; //динамический срок окупаемости
 
     //table values
+    @Column(name = "netPresentValue")
     private Double netPresentValue; //чистый дисконтированный доход
+
+    @Column(name = "internalRateOfReturn")
     private Double internalRateOfReturn; //внутренняя норма прибыли
+
+    @Column(name = "profitabilityIndex")
     private Double profitabilityIndex; //индекс прибыльности инвестиций
+
+    @Column(name = "description")
+    private String description;
+
+    @OneToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    @Column(name = "createdDate")
+    private Date createdDate;
 
     public Project() {
 
@@ -122,6 +158,30 @@ public class Project {
 
     public void setProfitabilityIndex(Double profitabilityIndex) {
         this.profitabilityIndex = profitabilityIndex;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

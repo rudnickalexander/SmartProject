@@ -2,6 +2,51 @@ th, td, tr {
     vertical-align: top;
 }
 
-.h4 {
+.h4, .h3 {
     text-align: center;
+}
+
+.search-param {
+    display: inline-block;
+    border: 1px solid gray; /* Параметры границы */
+    padding: 10px; /* Поля вокруг текста */
+    width: 97%;
+    margin: 5px;
+}
+
+.search-param input {
+    width: 50px;
+}
+
+.line {
+    display: inline-block;
+}
+
+.projectLine {
+    border: 1px solid gray;
+    margin: 5px;
+}
+
+.projectLine:hover {
+    background: green;
+    cursor: pointer;
+}
+
+.news {
+    margin: 20px 0;
+}
+
+#projectList {
+    border: 4px solid gray;
+}
+
+#param {
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 4px solid gray
+}
+
+#searchButton {
+    display: block;
+    margin-bottom: 5px;
 }

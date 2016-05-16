@@ -1,5 +1,7 @@
 package by.grsu.smart.project.controller;
 
+import by.grsu.smart.project.entity.Currency;
+import by.grsu.smart.project.entity.Metal;
 import by.grsu.smart.project.entity.Project;
 import by.grsu.smart.project.entity.json.CalculationResponse;
 import by.grsu.smart.project.entity.json.CalculatorRequest;
@@ -14,10 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class SmartProjectController {
@@ -37,8 +36,23 @@ public class SmartProjectController {
         logger.info("Direct to main page");
 
         Map<String, Object> params = new HashMap<>();
-        params.put("currencyExchange", currencyService.getCurrencyExchange());
-        params.put("ingotsPrices", metalService.getMetalCost());
+        List<Currency> currencies = new ArrayList<>();
+        currencies.add(currencyService.getUSDCurrencyExchange());
+        currencies.add(currencyService.getEURCurrencyExchange());
+        currencies.add(currencyService.getRUBCurrencyExchange());
+        params.put("currencyExchange", currencies);
+//        params.put("currencyExchange", currencyService.getCurrencyExchange());
+        List<Metal> metals = metalService.getMetalCost();
+
+        Iterator<Metal> metalIterator = metals.iterator();
+
+        while(metalIterator.hasNext()) {
+            if (metalIterator.next().getNominal() != 10) {
+                metalIterator.remove();
+            }
+        }
+
+        params.put("ingotsPrices", metals);
 //        params.put("USD", currencyService.getUSDCurrencyExchange());
 //        params.put("EUR", currencyService.getEURCurrencyExchange());
 //        params.put("RUB", currencyService.getRUBCurrencyExchange());
@@ -53,9 +67,9 @@ public class SmartProjectController {
     }
 
     @RequestMapping(value = "/repository", method = RequestMethod.GET)
-    public String repositoryPage() {
+    public ModelAndView repositoryPage() {
         logger.info("Direct to repository page");
-        return "projectRepository";
+        return new ModelAndView("projectRepository", "projects", projectService.getLatestProjects());
     }
 
     @RequestMapping(value = "/theory", method = RequestMethod.GET)
@@ -64,10 +78,10 @@ public class SmartProjectController {
         return "theory";
     }
 
-    @RequestMapping(value = "/document", method = RequestMethod.GET)
+    @RequestMapping(value = "/law", method = RequestMethod.GET)
     public String documentPage() {
-        logger.info("Direct to document page");
-        return "document";
+        logger.info("Direct to law page");
+        return "law";
     }
 
     @RequestMapping(value = "/calculateProject", method = RequestMethod.GET, produces = "application/json")

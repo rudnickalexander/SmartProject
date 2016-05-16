@@ -103,6 +103,11 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>3.4.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.4.2</version>
+        </dependency>
 
         <!--Testing-->
         <dependency>
@@ -163,6 +168,14 @@
                     <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.liquibase</groupId>-->
+                <!--<artifactId>liquibase-maven-plugin</artifactId>-->
+                <!--<version>3.4.1</version>-->
+                <!--<configuration>-->
+                    <!--<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 

@@ -8,16 +8,11 @@
     <link href="<c:url value="/static/styles/style.css" />" rel="stylesheet">
     <script src="<c:url value="/static/scripts/libs/jquery-1.12.1.min.js" />"></script>
     <script src="<c:url value="/static/scripts/smartProject.js" />"></script>
-    <title>Title</title>
+    <title>Theory</title>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <%--<div class="navbar-header">--%>
-        <%--<a class="navbar-brand" href="/">--%>
-        <%--<img alt="Brand" src="<c:url value="/resources/static/img/Issoft-solutions-logo-big22.png"/>" width="147" height="50">--%>
-        <%--</a>--%>
-        <%--</div>--%>
         <ul class="nav navbar-nav">
             <li>
                 <p class="navbar-btn">
@@ -25,7 +20,7 @@
                 </p>
             <li>
                 <p class="navbar-btn">
-                    <a href="/calculator" class="btn bnt-default btn-lg">Калькулятор проекта</a>
+                    <a href="/calculator" class="btn bnt-default btn-lg">Оценка проекта</a>
                 </p>
             </li>
             <li>
@@ -40,7 +35,7 @@
             </li>
             <li>
                 <p class="navbar-btn">
-                    <a href="/document" class="btn bnt-default btn-lg">Документация</a>
+                    <a href="/law" class="btn bnt-default btn-lg">Законодательство</a>
                 </p>
             </li>
         </ul>
