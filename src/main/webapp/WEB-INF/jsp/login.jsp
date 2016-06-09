@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Login page</title>
     <link href="<c:url value='/static/styles/bootstrap.min.css' />"  rel="stylesheet">
-    <link href="<c:url value='/static/styles/app.css' />" rel="stylesheet">
-    <link href="<c:url value='/resources/css/site.css' />" rel="stylesheet">
+    <link href="<c:url value='/static/styles/bootstrap-theme.min.css' />"  rel="stylesheet">
+    <link href="<c:url value='/static/styles/style.css' />" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<c:url value="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>" />
 </head>
 <body>

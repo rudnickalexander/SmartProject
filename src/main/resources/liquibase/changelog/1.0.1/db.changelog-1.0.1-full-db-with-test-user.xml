@@ -4,12 +4,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet author="AlexanderRudnik" id="create-project-database" context="schemeData">
+    <changeSet author="AlexanderRudnik" id="full-db-with-test-user">
         <sql>
-            CREATE DATABASE IF NOT EXISTS SmartProject CHARACTER SET cp1251;
+            INSERT INTO User(firstName, surname, password, email, phoneNumber, city, isEnabled, isAdmin) VALUE (
+                'Alexander', 'Rudnik', SHA1('adminalex'), 'admin@tut.by', '80333100172', 'Minsk', 1, 1
+            )
         </sql>
         <rollback>
-            DROP DATABASE SmartProject;
+            DROP TABLE IF EXISTS User;
         </rollback>
     </changeSet>
 </databaseChangeLog>

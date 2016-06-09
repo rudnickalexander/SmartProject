@@ -11,47 +11,38 @@
     <title>Laws</title>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <%--<div class="navbar-header">--%>
-        <%--<a class="navbar-brand" href="/">--%>
-        <%--<img alt="Brand" src="<c:url value="/resources/static/img/Issoft-solutions-logo-big22.png"/>" width="147" height="50">--%>
-        <%--</a>--%>
-        <%--</div>--%>
-        <ul class="nav navbar-nav">
-            <li>
-                <p class="navbar-btn">
-                    <a href="/main" class="btn bnt-default btn-lg">Главная</a>
-                </p>
-            <li>
-                <p class="navbar-btn">
-                    <a href="/calculator" class="btn bnt-default btn-lg">Оценка проекта</a>
-                </p>
-            </li>
-            <li>
-                <p class="navbar-btn">
-                    <a href="/repository" class="btn bnt-default btn-lg">База проектов</a>
-                </p>
-            </li>
-            <li>
-                <p class="navbar-btn">
-                    <a href="/theory" class="btn bnt-default btn-lg">Теория</a>
-                </p>
-            </li>
-            <li>
-                <p class="navbar-btn">
-                    <a href="/law" class="active btn bnt-default btn-lg">Законодательство</a>
-                </p>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <p class="navbar-btn">
-                    <button id="logoutBtn" class="btn btn-danger btn-lg" type="button">Logout</button>
-                </p>
-            </li>
-        </ul>
+<jsp:include page="header.jsp"/>
+<div class="container-fluid">
+    <div class="col-sm-offset-2">
+        <div style="margin-top: 5px">
+            <button class="btn">Аренда земельного участка</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Государственная поддержка инвест проектов</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Инвестиции в ценные бумаги</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Инвестиционные споры</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Инвестиционный агенет</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Инвестиционный бизнес-план</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Инвестиционный договор</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Инвестор</button>
+        </div>
+        <div style="margin-top: 5px">
+            <button class="btn">Налог на прибыль</button>
+        </div>
+
     </div>
-</nav>
+</div>
 </body>
 </html>

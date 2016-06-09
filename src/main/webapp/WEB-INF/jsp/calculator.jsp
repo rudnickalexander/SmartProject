@@ -11,48 +11,7 @@
     <title>Calculator</title>
 </head>
 <body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <%--<div class="navbar-header">--%>
-            <%--<a class="navbar-brand" href="/">--%>
-            <%--<img alt="Brand" src="<c:url value="/resources/static/img/Issoft-solutions-logo-big22.png"/>" width="147" height="50">--%>
-            <%--</a>--%>
-            <%--</div>--%>
-            <ul class="nav navbar-nav">
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/main" class="btn bnt-default btn-lg">Главная</a>
-                    </p>
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/calculator" class="active btn bnt-default btn-lg">Оценка проекта</a>
-                    </p>
-                </li>
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/repository" class="btn bnt-default btn-lg">База проектов</a>
-                    </p>
-                </li>
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/theory" class="btn bnt-default btn-lg">Теория</a>
-                    </p>
-                </li>
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/law" class="btn bnt-default btn-lg">Законодательство</a>
-                    </p>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <p class="navbar-btn">
-                        <button id="logoutBtn" class="btn btn-danger btn-lg" type="button">Logout</button>
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <jsp:include page="header.jsp"/>
     <div id="container">
         <form id="calculationForm" class="form-horizontal" role="form">
             <div class="form-group">
@@ -98,6 +57,9 @@
                         <th>Денежный поток нарастающим итогом</th>
                         <th>Дисконтированный денежный поток</th>
                         <th>Дисконтированный денежный поток нарастающим итогом</th>
+                        <th>Приведение будующей стоимости денег к их текущей стоимости</th>
+                        <th>Дисконтированный денежный доход</th>
+                        <th>Дисконтированный денежный расход</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -109,23 +71,23 @@
                     <tbody>
                         <tr>
                             <td class="warning">ЧДД, руб.</td>
-                            <td class="success"></td>
+                            <td class="success" contenteditable="true"></td>
                         </tr>
                         <tr>
                             <td class="warning">Внутренняя норма прибыли, %</td>
-                            <td class="success"></td>
+                            <td class="success" contenteditable="true"></td>
                         </tr>
                         <tr>
-                            <td class="warning">Индекс прибыльности, %</td>
-                            <td class="success"></td>
+                            <td class="warning">Индекс прибыльности</td>
+                            <td class="success" contenteditable="true"></td>
                         </tr>
                         <tr>
                             <td class="warning">Простой срок окупаемости, лет</td>
-                            <td class="success"></td>
+                            <td class="success" contenteditable="true"></td>
                         </tr>
                         <tr>
                             <td class="warning">Динамический срок окуппаемости, лет</td>
-                            <td class="success"></td>
+                            <td class="success" contenteditable="true"></td>
                         </tr>
                     </tbody>
                 </table>

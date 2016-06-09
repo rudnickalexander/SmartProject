@@ -43,7 +43,7 @@ public class Project {
     @Column(name = "description")
     private String description;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
     private User user;
 
@@ -185,6 +185,55 @@ public class Project {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Project project = (Project) o;
+
+        if (id != null ? !id.equals(project.id) : project.id != null) return false;
+        if (name != null ? !name.equals(project.name) : project.name != null) return false;
+        if (calculationHorizon != null ? !calculationHorizon.equals(project.calculationHorizon) : project.calculationHorizon != null)
+            return false;
+        if (bettingShopDiscount != null ? !bettingShopDiscount.equals(project.bettingShopDiscount) : project.bettingShopDiscount != null)
+            return false;
+        if (investedCapital != null ? !investedCapital.equals(project.investedCapital) : project.investedCapital != null)
+            return false;
+        if (simplePaybackPeriod != null ? !simplePaybackPeriod.equals(project.simplePaybackPeriod) : project.simplePaybackPeriod != null)
+            return false;
+        if (dynamicPaybackPeriod != null ? !dynamicPaybackPeriod.equals(project.dynamicPaybackPeriod) : project.dynamicPaybackPeriod != null)
+            return false;
+        if (netPresentValue != null ? !netPresentValue.equals(project.netPresentValue) : project.netPresentValue != null)
+            return false;
+        if (internalRateOfReturn != null ? !internalRateOfReturn.equals(project.internalRateOfReturn) : project.internalRateOfReturn != null)
+            return false;
+        if (profitabilityIndex != null ? !profitabilityIndex.equals(project.profitabilityIndex) : project.profitabilityIndex != null)
+            return false;
+        if (description != null ? !description.equals(project.description) : project.description != null) return false;
+        if (user != null ? !user.equals(project.user) : project.user != null) return false;
+        return createdDate != null ? createdDate.equals(project.createdDate) : project.createdDate == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (calculationHorizon != null ? calculationHorizon.hashCode() : 0);
+        result = 31 * result + (bettingShopDiscount != null ? bettingShopDiscount.hashCode() : 0);
+        result = 31 * result + (investedCapital != null ? investedCapital.hashCode() : 0);
+        result = 31 * result + (simplePaybackPeriod != null ? simplePaybackPeriod.hashCode() : 0);
+        result = 31 * result + (dynamicPaybackPeriod != null ? dynamicPaybackPeriod.hashCode() : 0);
+        result = 31 * result + (netPresentValue != null ? netPresentValue.hashCode() : 0);
+        result = 31 * result + (internalRateOfReturn != null ? internalRateOfReturn.hashCode() : 0);
+        result = 31 * result + (profitabilityIndex != null ? profitabilityIndex.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
@@ -197,6 +246,9 @@ public class Project {
                 ", netPresentValue=" + netPresentValue +
                 ", internalRateOfReturn=" + internalRateOfReturn +
                 ", profitabilityIndex=" + profitabilityIndex +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", createdDate=" + createdDate +
                 '}';
     }
 }

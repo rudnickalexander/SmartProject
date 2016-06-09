@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="AlexanderRudnik" id="full-db-with-test-projects">
+        <sql>
+            INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
+            dynamicPaybackPeriod, netPresentValue, internalRateOfReturn, profitabilityIndex, description, userId,
+            createdDate)
+            VALUES (
+                'abs', '3', '12', '35000000', '23', '31', '4100000', '26.2', '3',
+                '123', '1', '2016-05-15'<!--,
+
+                ('Беллакт', 8, 9.49, 35840000, 54, 58, 20315600, 17.7, 1.68,
+                'Оборудование для производства и расфасовки жидкого и пастообразного детского питания',
+                1, '2016-05-15'),
+
+                ('Молочно-товарная ферма', 17, 10.3, 103677800000, 109, 183, 3764000000, 10.35, 1.04,
+                'Бизнес-планом инвестиционного проекта «Молочно-товарная',
+                1, '2016-05-15')-->
+            )
+        </sql>
+        <rollback>
+            DELETE FROM Project WHERE createdDate = '2016-05-15';
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

@@ -1,3 +1,5 @@
+var selectedProjectCount = 0;
+
 $(document).ready(function () {
 
     $('#calculationHorizon').keyup(function () {
@@ -52,7 +54,6 @@ $(document).ready(function () {
                 }
             },
             success: function (data) {
-                console.log(data);
                 var attribute = data.attribute;
                 var index = 0;
 
@@ -91,19 +92,113 @@ $(document).ready(function () {
         });
     });
 
-    $('.projectLine').click(function (event) {
-        $('#projectModal').modal('show');
+    $('.projectLine').click(function () {
+        var projectId = $(this).attr('projectId');
+
+        $.ajax({
+            type: 'GET',
+            url: 'project/' + projectId + '.json',
+            dataType: 'json',
+            cache: false,
+            async: false,
+            success: function (data) {
+                $('#projectModalPage').modal('show');
+                $('#myModalLabel').html(data.name);
+                $('#modalDescription').html(data.description);
+                $('#modalContact').html(data.user.firstName);
+                $('#modalContact').append(', ' + data.user.phoneNumber);
+                $('#calcHorizonModal').html(data.calculationHorizon);
+                $('#simplePaybackPeriodModal').html(data.simplePaybackPeriod);
+                $('#dynPaybackPeriodModal').html(data.dynamicPaybackPeriod);
+                $('#internalRateOfReturnModal').html(data.internalRateOfReturn);
+                $('#profitabilityIndexModal').html(data.profitabilityIndex);
+            },
+            error: function (data) {
+                data.preventDefault();
+            }
+        });
     });
 
     $('#searchButton').click(function () {
-        for (var i = 0; i < 3; i++) {
-            $('#projectList').find('.projectLine:eq(' + i + ')').css('display', 'none');
+        var paramArray = [];
+        $('.request-param').each(function (item, value) {
+            paramArray[item] = $(value).val();
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: 'searching.json',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            cache: false,
+            async: false,
+            data: {
+                params: JSON.stringify(paramArray)
+            },
+            success: function (data) {
+                console.log(data);
+                data.each(function (item, value) {
+                    
+                })
+            },
+            error: function (data) {
+                data.preventDefault();
+            }
+        });
+    });
+    
+    $('#signInButton').click(function () {
+        location = '/login'
+    });
+
+    $('.ch').click(function () {
+        selectedProjectCount++;
+
+        if (selectedProjectCount === 2) {
+            selectedProjectCount = 0;
+            $('#projectList').find(':checked').each(function (index, item) {
+                $(item).prop('checked', false);
+                var projectId = $(item).parent('.col-sm-1').parent('.one-project').find('.col-sm-11').find('.projectLine').attr('projectId');
+
+                $.ajax({
+                    type: 'GET',
+                    url: 'project/' + projectId + '.json',
+                    dataType: 'json',
+                    cache: false,
+                    async: false,
+                    success: function (data) {
+                        var i = index + 1;
+                        $('#myModalLabel' + i).html(data.name);
+                        $('#modalDescription' + i).html(data.description);
+                        $('#modalContact' + i).html(data.user.firstName);
+                        $('#modalContact' + i).append(', ' + data.user.phoneNumber);
+                        $('#calcHorizonModal' + i).html(data.calculationHorizon);
+                        $('#simplePaybackPeriodModal' + i).html(data.simplePaybackPeriod);
+                        $('#dynPaybackPeriodModal' + i).html(data.dynamicPaybackPeriod);
+                        $('#internalRateOfReturnModal' + i).html(data.internalRateOfReturn);
+                        $('#profitabilityIndexModal' + i).html(data.profitabilityIndex);
+                    },
+                    error: function (data) {
+                        data.preventDefault();
+                    }
+                });
+
+
+            });
+
+            $('#compareProjects').modal('show');
         }
+    });
+
+    $('#signUpButton').click(function () {
+        location = '/registry';
     })
 
 });
 
 function getTableRow(index) {
-    return '<tr><td>' + index + '</td>' + '<td contenteditable=\'true\'></td>' + '<td contenteditable=\'true\'></td>' +
-        '<td></td>' + '<td></td>' + '<td></td>' + '<td></td>';
+    return '<tr><td>' + index + '</td>' + '<td contenteditable=\'true\'></td>' + '<td contenteditable=\'true\'></td>'
+        + '<td contenteditable=\'true\'></td>' + '<td contenteditable=\'true\'></td>' + '<td contenteditable=\'true\'></td>'
+        + '<td contenteditable=\'true\'></td>' + '<td contenteditable=\'true\'></td>' + '<td contenteditable=\'true\'></td>'
+        + '<td contenteditable=\'true\'></td>';
 }

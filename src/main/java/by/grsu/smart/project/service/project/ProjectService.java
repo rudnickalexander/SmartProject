@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface ProjectService {
 
+    Project getProject(Long id);
+
     List<CalculationResponse> calculateProjectParams(int calculationHorizon, double bettingShopDiscount, double investedCapital, List<CalculatorRequest> requests);
 
     Project calculateProject(int calculationHorizon, double bettingShopDiscount, double investedCapital, List<CalculationResponse> params);
@@ -15,5 +17,7 @@ public interface ProjectService {
     void saveProject(Project project);
 
     List<Project> getLatestProjects();
+
+    List<Project> findProject(List<Double> params);
 
 }

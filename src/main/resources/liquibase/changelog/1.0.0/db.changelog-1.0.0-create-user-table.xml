@@ -8,10 +8,14 @@
         <sql>
             CREATE TABLE IF NOT EXISTS User(
             id INT(10) NOT NULL AUTO_INCREMENT,
-            name VARCHAR(50) NOT NULL,
+            firstName VARCHAR(50) NOT NULL,
+            surname VARCHAR(50) NOT NULL,
             password VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL,
-            phone VARCHAR(20) NOT NULL,
+            phoneNumber VARCHAR(20) NOT NULL,
+            city VARCHAR(50) NOT NULL,
+            isEnabled TINYINT(1) NOT NULL DEFAULT 1,
+            isAdmin TINYINT(1) NOT NULL DEFAULT 0,
 
             PRIMARY KEY(id)
             )

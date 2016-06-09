@@ -19,7 +19,7 @@
             internalRateOfReturn float(20) NOT NULL,
             profitabilityIndex float(20) NOT NULL,
 
-            description varchar(1024) DEFAULT '',
+            description varchar(10000) DEFAULT '',
             userId INT(10) NOT NULL,
             createdDate DATE NOT NULL,
 

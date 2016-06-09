@@ -3,18 +3,23 @@ package by.grsu.smart.project.controller;
 import by.grsu.smart.project.entity.Currency;
 import by.grsu.smart.project.entity.Metal;
 import by.grsu.smart.project.entity.Project;
+import by.grsu.smart.project.entity.User;
 import by.grsu.smart.project.entity.json.CalculationResponse;
 import by.grsu.smart.project.entity.json.CalculatorRequest;
 import by.grsu.smart.project.service.currency.CurrencyService;
 import by.grsu.smart.project.service.metal.MetalService;
 import by.grsu.smart.project.service.project.ProjectService;
+import by.grsu.smart.project.service.user.UserService;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
@@ -30,6 +35,9 @@ public class SmartProjectController {
 
     @Autowired
     private MetalService metalService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView mainPage() {
@@ -84,6 +92,30 @@ public class SmartProjectController {
         return "law";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage() {
+        logger.info("Direct to login page");
+        return "login";
+    }
+
+    @RequestMapping(value = "/registry", method = RequestMethod.GET)
+    public String registryPage() {
+        logger.info("Direct to registry page");
+        return "registry";
+    }
+
+    @RequestMapping(value = "/private", method = RequestMethod.GET)
+    public String privateRoomPage() {
+        logger.info("");
+        return "privateRoom";
+    }
+
+    @RequestMapping(value = "/project/{projectId}", method = RequestMethod.GET)
+    @ResponseBody
+    public String getProject(@PathVariable("projectId") Long projectId) {
+        return getJSONString(projectService.getProject(projectId)) ;
+    }
+
     @RequestMapping(value = "/calculateProject", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public String getProjectParams(@RequestParam("params") String params,
@@ -98,6 +130,39 @@ public class SmartProjectController {
         map.put("project", project);
 
         return getJSONString(map);
+    }
+
+    @RequestMapping(value = "/searching", method = RequestMethod.GET)
+    @ResponseBody
+    public String searchProject(@RequestParam("params") String params) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Double> requests = null;
+
+        try {
+            requests = Arrays.asList(objectMapper.readValue(params, Double[].class));
+        } catch (IOException e) {
+            logger.error("Exception deserialization json - " + params, e);
+            e.printStackTrace();
+        }
+
+        System.out.println(requests);
+
+        return getJSONString(projectService.findProject(requests));
+    }
+
+    @RequestMapping(value = "registryNewUser", method = RequestMethod.POST)
+    public String registryNewUser(HttpServletRequest request) {
+        String email = request.getParameter("emailInput");
+        String password = request.getParameter("passwordInput");
+        String passwordRepeat = request.getParameter("passwordRepeatInput");
+
+        if (password == null || !password.equals(passwordRepeat)) {
+            return  "errorPage";
+        }
+
+        userService.saveUser(new User(email, password));
+
+        return "main";
     }
 
     private String getJSONString(Object value) {

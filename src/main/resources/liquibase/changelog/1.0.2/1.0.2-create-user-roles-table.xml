@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="AlexanderRudnik" id="create-user-roles-table" context="schemedata">
+        <sql>
+            CREATE TABLE IF NOT EXISTS User_Roles (
+            user_role_id INT(10) NOT NULL AUTO_INCREMENT,
+            email VARCHAR(255) NOT NULL,
+            role VARCHAR(50) NOT NULL,
+
+            CONSTRAINT user_role UNIQUE (email, role),
+            PRIMARY KEY (user_role_id),
+            FOREIGN KEY (email) REFERENCES User(email)
+            )
+        </sql>
+        <rollback>
+            DROP TABLE IF EXISTS User_Roles;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

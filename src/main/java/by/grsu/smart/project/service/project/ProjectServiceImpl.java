@@ -17,6 +17,11 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectDAO projectDAO;
 
     @Override
+    public Project getProject(Long id) {
+        return projectDAO.getProject(id);
+    }
+
+    @Override
     public List<CalculationResponse> calculateProjectParams(int calculationHorizon, double bettingShopDiscount, double investedCapital, List<CalculatorRequest> requests) {
         List<CalculationResponse> responses = new ArrayList<>(requests.size());
 
@@ -81,6 +86,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<Project> getLatestProjects() {
         return projectDAO.getLatest();
+    }
+
+    @Override
+    public List<Project> findProject(List<Double> params) {
+        return projectDAO.findProject(params);
     }
 
     private Double calculateDCF(double cashFlow, double bettingShopDiscount, int year) {

@@ -36,6 +36,10 @@ th, td, tr {
     margin: 20px 0;
 }
 
+.modal-row {
+    display: inline-block;
+}
+
 #projectList {
     border: 4px solid gray;
 }
@@ -49,4 +53,53 @@ th, td, tr {
 #searchButton {
     display: block;
     margin-bottom: 5px;
+}
+
+#registryForm {
+    margin-top: 10%;
+}
+
+body, #mainWrapper, .form-control{
+    font-size:12px !important;
+}
+
+#mainWrapper {
+    height: 100vh;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+}
+
+#authHeaderWrapper{
+    clear:both;
+    width: 100%;
+    height:3%;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.login-container {
+    margin-top: 250px;
+    /*background-color: floralwhite;*/
+    width: 20%;
+    left: 40%;
+    position: absolute;
+}
+
+.login-card {
+    width: 80%;
+    margin: auto;
+}
+.login-form {
+    padding: 10%;
+}
+
+#table {
+    width: 60%;
+    left: 30%;
+    margin-top: 100px;
+}
+
+.modal-dialog {
+    width: 1000px !important;
 }
