@@ -39,6 +39,10 @@
                                         <label>Внутренняя норма прибыли, %</label>
                                         <div id="internalRateOfReturnModal1" class="modal-row text-right"></div>
                                     </div>
+                                    <div class="row">
+                                        <label>Чистый дисконтированный доход, руб.</label>
+                                        <div id="npv1" class="modal-row text-right"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="container-fluid col-sm-6 search-param" id="modalContact1"></div>
@@ -71,6 +75,10 @@
                                     <div class="row">
                                         <label>Внутренняя норма прибыли, %</label>
                                         <div id="internalRateOfReturnModal2" class="modal-row text-right"></div>
+                                    </div>
+                                    <div class="row">
+                                        <label>Чистый дисконтированный доход, руб.</label>
+                                        <div id="npv2" class="modal-row text-right"></div>
                                     </div>
                                 </div>
                             </div>

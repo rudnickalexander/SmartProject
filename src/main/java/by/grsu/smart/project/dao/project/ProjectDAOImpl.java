@@ -49,8 +49,8 @@ public class ProjectDAOImpl extends BaseDAO implements ProjectDAO {
                                     "and p.simplePaybackPeriod <= :sPPT " +
                                     "and p.dynamicPaybackPeriod >= :dPPF " +
                                     "and p.dynamicPaybackPeriod <= :dPPT " +
-                                    "and p.profitabilityIndex >= :pIF " +
-                                    "and p.profitabilityIndex <= :pIT";
+                                    "and p.netPresentValue >= :pIF " +
+                                    "and p.netPresentValue <= :pIT";
 
         Query query = sessionFactory.getCurrentSession().createQuery(queryString);
         query.setParameter("sPPF", params.get(0) == null ? -1 : params.get(0).intValue());
@@ -59,18 +59,6 @@ public class ProjectDAOImpl extends BaseDAO implements ProjectDAO {
         query.setParameter("dPPT", params.get(3) == null ? 9999 : params.get(3).intValue());
         query.setParameter("pIF", params.get(4) == null ? -1 : params.get(4));
         query.setParameter("pIT", params.get(5) == null ? 9999 : params.get(5));
-
-        return query.list();
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<Project> getProjects(int a, int b) {
-        String queryString = "select p from Project p where p.simplePaybackPeriod >= :simplePaybackPeriod and " +
-                "p.dynamicPaybackPeriod < :dynamicPaybackPeriod";
-
-        Query query  = sessionFactory.getCurrentSession().createQuery(queryString);
-        query.setParameter("simplePaybackPeriod", a);
-        query.setParameter("dynamicPaybackPeriod", b);
 
         return query.list();
     }

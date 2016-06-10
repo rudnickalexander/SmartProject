@@ -12,52 +12,53 @@
     <title>Private room</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <div class="container-fluid">
-    <form id="registryForm" class="form-horizontal" action="registryNewUser" method="post">
+    <form id="registryForm" class="form-horizontal" action="privateRoom" method="post">
         <div class="h4">Личный кабинет</div>
         <div class="form-group">
-            <label for="emailInput" class="col-sm-4 control-label">Логин</label>
+            <label for="emailInput" class="col-sm-4 control-label">Email</label>
             <div class="col-sm-4">
-                <input id="emailInput" type="email" class="form-control" name="emailInput" value="" />
+                <input id="emailInput" type="email" class="form-control" name="emailInput" value="${userDetails.email}" readonly />
             </div>
             <div class="col-sm-4"></div>
         </div>
         <div class="form-group">
-            <label for="passwordInput" class="col-sm-4 control-label">Фамилия</label>
+            <label for="surnameUnput" class="col-sm-4 control-label">Фамилия</label>
             <div class="col-sm-4">
-                <input id="passwordInput" type="text" class="form-control" name="passwordInput" value="" />
+                <input id="surnameUnput" type="text" class="form-control" name="surnameInput" value="${userDetails.surname}" />
             </div>
             <div class="col-sm-4"></div>
         </div>
         <div class="form-group">
-            <label for="passwordRepeatInput" class="col-sm-4 control-label">Имя</label>
+            <label for="firstNameInput" class="col-sm-4 control-label">Имя</label>
             <div class="col-sm-4">
-                <input id="passwordRepeatInput" type="text" class="form-control" name="passwordRepeatInput" />
+                <input id="firstNameInput" type="text" class="form-control" name="firstNameInput" value="${userDetails.firstName}" />
             </div>
             <div class="col-sm-4"></div>
         </div>
         <div class="form-group">
             <label for="phoneInput" class="col-sm-4 control-label">Телефон</label>
             <div class="col-sm-4">
-                <input id="phoneInput" type="text" class="form-control" name="passwordRepeatInput" />
+                <input id="phoneInput" type="text" class="form-control" name="phoneInput" value="${userDetails.phoneNumber}"/>
             </div>
             <div class="col-sm-4"></div>
         </div>
-        <div class="form-group">
-            <label for="cityInput" class="col-sm-4 control-label">Email</label>
-            <div class="col-sm-4">
-                <input id="cityInput" type="text" class="form-control" name="passwordRepeatInput" />
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
+        <%--<div class="form-group">--%>
+            <%--<label for="cityInput" class="col-sm-4 control-label">Email</label>--%>
+            <%--<div class="col-sm-4">--%>
+                <%--<input id="cityInput" type="text" class="form-control" name="passwordRepeatInput" />--%>
+            <%--</div>--%>
+            <%--<div class="col-sm-4"></div>--%>
+        <%--</div>--%>
 
 
         <div class="form-group">
+            <%--<div class="col-sm-1 col-sm-offset-4">--%>
+                <%--<input type="reset" class="btn btn-danger btn-lg" value="Изменить пароль" />--%>
+            <%--</div>--%>
             <div class="col-sm-1 col-sm-offset-4">
-                <input type="reset" class="btn btn-danger btn-lg" value="Отмена" />
-            </div>
-            <div class="col-sm-1 col-sm-offset-1">
-                <input type="submit" value="Изменить" class="btn btn-success btn-lg"/>
+                <input type="submit" value="Изменить данные" class="btn btn-success btn-lg"/>
             </div>
         </div>
     </form>

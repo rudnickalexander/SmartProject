@@ -8,14 +8,14 @@
         <sql>
             CREATE TABLE IF NOT EXISTS Project(
             id INT(10) NOT NULL AUTO_INCREMENT,
-            name varchar(50) NOT NULL,
+            name varchar(500) NOT NULL,
             calculationHorizon INT(10) NOT NULL,
             bettingShopDiscount float(10) NOT NULL,
             investedCapital float(20) NOT NULL,
             simplePaybackPeriod INT(10) NOT NULL,
             dynamicPaybackPeriod INT(10) NOT NULL,
 
-            netPresentValue float(20) NOT NULL,
+            b float(20) NOT NULL,
             internalRateOfReturn float(20) NOT NULL,
             profitabilityIndex float(20) NOT NULL,
 
@@ -24,7 +24,7 @@
             createdDate DATE NOT NULL,
 
             PRIMARY KEY(id),
-            FOREIGN KEY (userId) REFERENCES User(id)
+            CONSTRAINT fk_user_id FOREIGN KEY (userId) REFERENCES User(id)
             )
         </sql>
         <rollback>

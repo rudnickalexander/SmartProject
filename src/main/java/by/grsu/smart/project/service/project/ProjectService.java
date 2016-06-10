@@ -12,7 +12,8 @@ public interface ProjectService {
 
     List<CalculationResponse> calculateProjectParams(int calculationHorizon, double bettingShopDiscount, double investedCapital, List<CalculatorRequest> requests);
 
-    Project calculateProject(int calculationHorizon, double bettingShopDiscount, double investedCapital, List<CalculationResponse> params);
+    Project calculateProject(int calculationHorizon, double bettingShopDiscount, double investedCapital, int investedCapitalMonth,
+                             List<CalculationResponse> params);
 
     void saveProject(Project project);
 

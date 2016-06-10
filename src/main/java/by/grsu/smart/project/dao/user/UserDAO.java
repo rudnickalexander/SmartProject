@@ -6,5 +6,7 @@ public interface UserDAO {
 
     void save(User user);
 
-    void update(User user);
+    User update(User user);
+
+    User getUser(User user);
 }

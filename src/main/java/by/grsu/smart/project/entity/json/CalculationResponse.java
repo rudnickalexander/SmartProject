@@ -1,61 +1,94 @@
 package by.grsu.smart.project.entity.json;
 
 public class CalculationResponse {
-    private double cashFlow;
-    private double netPresentValue;
-    private double discountedCashFlow;
-    private double discountedCashFlowAccrualBasis;
+    private double a;
+    private double b;
+    private double c;
+    private double d;
+    private double e;
+    private double f;
+    private double g;
+
+    public CalculationResponse(double a, double b, double c, double d, double e, double f, double g) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.e = e;
+        this.f = f;
+        this.g = g;
+    }
 
     public CalculationResponse() {
 
     }
 
-    public CalculationResponse(Double cashFlow, Double netPresentValue, Double discountedCashFlow, Double discountedCashFlowAccrualBasis) {
-        this.cashFlow = cashFlow;
-        this.netPresentValue = netPresentValue;
-        this.discountedCashFlow = discountedCashFlow;
-        this.discountedCashFlowAccrualBasis = discountedCashFlowAccrualBasis;
+    public double getA() {
+        return a;
     }
 
-    public Double getCashFlow() {
-        return cashFlow;
+    public void setA(double a) {
+        this.a = a;
     }
 
-    public void setCashFlow(Double cashFlow) {
-        this.cashFlow = cashFlow;
+    public double getB() {
+        return b;
     }
 
-    public Double getNetPresentValue() {
-        return netPresentValue;
+    public void setB(double b) {
+        this.b = b;
     }
 
-    public void setNetPresentValue(Double netPresentValue) {
-        this.netPresentValue = netPresentValue;
+    public double getC() {
+        return c;
     }
 
-    public Double getDiscountedCashFlow() {
-        return discountedCashFlow;
+    public void setC(double c) {
+        this.c = c;
     }
 
-    public void setDiscountedCashFlow(Double discountedCashFlow) {
-        this.discountedCashFlow = discountedCashFlow;
+    public double getD() {
+        return d;
     }
 
-    public Double getDiscountedCashFlowAccrualBasis() {
-        return discountedCashFlowAccrualBasis;
+    public void setD(double d) {
+        this.d = d;
     }
 
-    public void setDiscountedCashFlowAccrualBasis(Double discountedCashFlowAccrualBasis) {
-        this.discountedCashFlowAccrualBasis = discountedCashFlowAccrualBasis;
+    public double getE() {
+        return e;
+    }
+
+    public void setE(double e) {
+        this.e = e;
+    }
+
+    public double getF() {
+        return f;
+    }
+
+    public void setF(double f) {
+        this.f = f;
+    }
+
+    public double getG() {
+        return g;
+    }
+
+    public void setG(double g) {
+        this.g = g;
     }
 
     @Override
     public String toString() {
         return "CalculationResponse{" +
-                "cashFlow=" + cashFlow +
-                ", netPresentValue=" + netPresentValue +
-                ", discountedCashFlow=" + discountedCashFlow +
-                ", discountedCashFlowAccrualBasis=" + discountedCashFlowAccrualBasis +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                ", d=" + d +
+                ", e=" + e +
+                ", f=" + f +
+                ", g=" + g +
                 '}';
     }
 }

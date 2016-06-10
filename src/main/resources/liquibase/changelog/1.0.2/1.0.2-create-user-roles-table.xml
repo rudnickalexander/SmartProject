@@ -6,15 +6,14 @@
 
     <changeSet author="AlexanderRudnik" id="create-user-roles-table" context="schemedata">
         <sql>
-            CREATE TABLE IF NOT EXISTS User_Roles (
-            user_role_id INT(10) NOT NULL AUTO_INCREMENT,
-            email VARCHAR(255) NOT NULL,
-            role VARCHAR(50) NOT NULL,
-
-            CONSTRAINT user_role UNIQUE (email, role),
-            PRIMARY KEY (user_role_id),
-            FOREIGN KEY (email) REFERENCES User(email)
-            )
+            CREATE TABLE user_roles (
+              user_role_id int(11) NOT NULL AUTO_INCREMENT,
+              user_email varchar(255) NOT NULL,
+              role varchar(45) NOT NULL,
+              PRIMARY KEY (user_role_id),
+              UNIQUE KEY uni_username_role (role, user_email),
+              KEY fk_username_idx (user_email),
+              CONSTRAINT fk_username FOREIGN KEY (user_email) REFERENCES User (email));
         </sql>
         <rollback>
             DROP TABLE IF EXISTS User_Roles;

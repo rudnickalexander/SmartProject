@@ -13,35 +13,28 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container-fluid">
-    <div class="col-sm-offset-2">
+    <div class="col-sm-offset-1" style="font-size: 16px">
         <div style="margin-top: 5px">
-            <button class="btn">Аренда земельного участка</button>
+            <a href="../../static/docs/arenda_zemelnogo_uchastka.zip" download="">Аренда земельного участка</a>
         </div>
         <div style="margin-top: 5px">
-            <button class="btn">Государственная поддержка инвест проектов</button>
+            <a href="../../static/docs/buh_ychet_investiciu.zip" download="">Бухучет инвестиций</a>
         </div>
         <div style="margin-top: 5px">
-            <button class="btn">Инвестиции в ценные бумаги</button>
+            <a href="../../static/docs/Ввоз%20технологического%20оборудования%20и%20материалов.zip" download="">Ввоз технологического оборудования</a>
         </div>
         <div style="margin-top: 5px">
-            <button class="btn">Инвестиционные споры</button>
+            <a href="../../static/docs/Государственная%20поддержка%20инвестиционных%20проектов.zip" download="">Государственная поддержка инвестиционных проектов</a>
         </div>
         <div style="margin-top: 5px">
-            <button class="btn">Инвестиционный агенет</button>
+            <a href="../../static/docs/Земельный%20налог.zip" download="">Земельный налог</a>
         </div>
         <div style="margin-top: 5px">
-            <button class="btn">Инвестиционный бизнес-план</button>
+            <a href="../../static/docs/Инвестиции%20в%20ценные%20бумаги.zip" download="">Инвестиции в ценные бумаги</a>
         </div>
         <div style="margin-top: 5px">
-            <button class="btn">Инвестиционный договор</button>
+            <a href="../../static/docs/Инвестиционные%20споры.zip" download="">Инвестиционные споры</a>
         </div>
-        <div style="margin-top: 5px">
-            <button class="btn">Инвестор</button>
-        </div>
-        <div style="margin-top: 5px">
-            <button class="btn">Налог на прибыль</button>
-        </div>
-
     </div>
 </div>
 </body>

@@ -17,11 +17,22 @@
             isEnabled TINYINT(1) NOT NULL DEFAULT 1,
             isAdmin TINYINT(1) NOT NULL DEFAULT 0,
 
+            UNIQUE KEY user_email (email),
+
             PRIMARY KEY(id)
             )
+
+            <!--CREATE  TABLE users (-->
+                <!--id INT(10) NOT NULL AUTO_INCREMENT,-->
+            <!--  username VARCHAR(45) NOT NULL ,-->
+            <!--  password VARCHAR(45) NOT NULL ,-->
+            <!--  enabled TINYINT NOT NULL DEFAULT 1 ,-->
+
+            <!--UNIQUE KEY username_key (username),-->
+            <!--  PRIMARY KEY (id));-->
         </sql>
         <rollback>
-            DROP TABLE IF EXISTS User;
+            DROP TABLE IF EXISTS users;
         </rollback>
     </changeSet>
 </databaseChangeLog>

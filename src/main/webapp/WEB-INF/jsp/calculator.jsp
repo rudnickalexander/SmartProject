@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label for="projectName" class="col-sm-5 control-label">Название проекта</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="projectName">
+                    <input type="text" class="form-control" id="projectName" required>
                 </div>
             </div>
             <div class="form-group">
@@ -39,12 +39,20 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="investedCapitalMonth" class="col-sm-5 control-label">Месяц первых инвестиционных вложений</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="investedCapitalMonth" required>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-1">
                     <input id="calculateButton" class="btn btn-submit btn-lg" type="button" value="Рассчитать">
                 </div>
-                <div class="col-sm-offset-1 col-sm-1">
-                    <input id="saveButton" class="btn btn-submit btn-lg" type="button" value="Сохранить">
-                </div>
+                <c:if test="${sessionScope.user != null}">
+                    <div class="col-sm-offset-1 col-sm-1">
+                        <input id="saveButton" class="btn btn-submit btn-lg" type="button" value="Сохранить">
+                    </div>
+                </c:if>
             </div>
 
             <table id="projectParams" class="table table-striped table-bordered table-condensed table-hover">
@@ -55,11 +63,11 @@
                         <th class="info">Денежный расход</th>
                         <th>Денежный поток</th>
                         <th>Денежный поток нарастающим итогом</th>
-                        <th>Дисконтированный денежный поток</th>
-                        <th>Дисконтированный денежный поток нарастающим итогом</th>
                         <th>Приведение будующей стоимости денег к их текущей стоимости</th>
                         <th>Дисконтированный денежный доход</th>
                         <th>Дисконтированный денежный расход</th>
+                        <th>Дисконтированный денежный поток</th>
+                        <th>Дисконтированный денежный поток нарастающим методом</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,11 +90,11 @@
                             <td class="success" contenteditable="true"></td>
                         </tr>
                         <tr>
-                            <td class="warning">Простой срок окупаемости, лет</td>
+                            <td class="warning">Простой срок окупаемости, мес</td>
                             <td class="success" contenteditable="true"></td>
                         </tr>
                         <tr>
-                            <td class="warning">Динамический срок окуппаемости, лет</td>
+                            <td class="warning">Динамический срок окуппаемости, мес</td>
                             <td class="success" contenteditable="true"></td>
                         </tr>
                     </tbody>

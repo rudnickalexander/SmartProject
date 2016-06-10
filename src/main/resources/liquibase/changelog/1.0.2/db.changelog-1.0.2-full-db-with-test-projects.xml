@@ -7,16 +7,12 @@
     <changeSet author="AlexanderRudnik" id="full-db-with-test-projects">
         <sql>
             INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
-            dynamicPaybackPeriod, netPresentValue, internalRateOfReturn, profitabilityIndex, description, userId,
+            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
             createdDate)
             VALUES (
                 'Беллакт', 8, 9.49, 35840000, 54, 58, 20315600, 17.7, 1.68,
                 'Оборудование для производства и расфасовки жидкого и пастообразного детского питания',
                 1, '2016-05-15'
-
-                <!--<&#45;&#45;('Молочно-товарная ферма', 17, 10.3, 103677800000, 109, 183, 3764000000, 10.35, 1.04,-->
-                <!--'Бизнес-планом инвестиционного проекта «Молочно-товарная',-->
-                <!--1, '2016-05-15')&ndash;&gt;-->
             )
         </sql>
         <rollback>

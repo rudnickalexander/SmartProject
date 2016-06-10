@@ -32,9 +32,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <c:choose>
-                <c:when test="${not empty sessionScope.user}">
+                <c:when test="${sessionScope.user != null}">
                     <li>
-                        <p class="navbar-btn">
+                        <p class="navbar-btn" style="display: inline-block">
+                            <button id="privateRoomButton" class="btn btn-success btn-lg" type="button">Личный кабинет</button>
+                        </p>
+                        <p class="navbar-btn" style="display: inline-block">
                             <button id="logoutBtn" class="btn btn-danger btn-lg" type="button">Выйти</button>
                         </p>
                     </li>

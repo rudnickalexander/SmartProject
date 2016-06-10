@@ -23,31 +23,58 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("select email, password, isDeleted from user where email = ?");
-//                .authoritiesByUsernameQuery("select email, role from user_roles where email = ?")
-//                .passwordEncoder(passwordEncoder());
+                .usersByUsernameQuery("select email, password, isEnabled from User where email = ?")
+                .authoritiesByUsernameQuery("select user_email, role from user_roles where user_email = ?")
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
+        http
                 .authorizeRequests()
                 .antMatchers("/static/**").permitAll()
-                .and();
-        http.formLogin().permitAll();
-        http.logout().permitAll();
-        http.authorizeRequests()
-                .antMatchers("/").permitAll();
-//                .antMatchers("/").hasAnyRole("ADMIN", "USER")
-//                .antMatchers("/saveProject**").hasRole("ADMIN")
-//                .and().formLogin().loginPage("/login")
-//                .usernameParameter("ssoId").passwordParameter("password")/*
-//                .and().exceptionHandling().accessDeniedPage("/accessdenied")*/;
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
     }
 
-//    @Bean
-//    public ShaPasswordEncoder passwordEncoder() {
-//        return new ShaPasswordEncoder();
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeRequests()
+//
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .httpBasic();
+////        http.csrf()
+////                .disable()
+////                .authorizeRequests()
+////                .antMatchers("/static/**").permitAll()
+////                .and();
+////        http.formLogin().permitAll().loginPage("/login");
+////
+////        http.logout().permitAll();
+////        http.authorizeRequests()
+////                .antMatchers("/main").hasAnyRole("USER", "ADMIN");
+////                .and().formLogin().loginPage("/login");
+////                .antMatchers("/").hasAnyRole("ADMIN", "USER")
+////                .antMatchers("/saveProject**").hasRole("ADMIN")
+////                .and().formLogin().loginPage("/login")
+////                .usernameParameter("ssoId").passwordParameter("password")/*
+////                .and().exceptionHandling().accessDeniedPage("/accessdenied")*/;
 //    }
+
+    @Bean
+    public ShaPasswordEncoder passwordEncoder() {
+        return new ShaPasswordEncoder();
+    }
 }

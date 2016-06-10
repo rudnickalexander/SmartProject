@@ -20,4 +20,14 @@ public class UserServiceImpl implements UserService {
         userDAO.save(user);
         logger.info("Saved user - " + user);
     }
+
+    @Override
+    public User getUser(User user) {
+        return userDAO.getUser(user);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return userDAO.update(user);
+    }
 }

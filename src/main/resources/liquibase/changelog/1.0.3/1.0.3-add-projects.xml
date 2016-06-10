@@ -1,0 +1,65 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="AlexanderRudnik" id="add-projects">
+        <sql>
+            INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
+            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            createdDate)
+            VALUES (
+
+            ' Создание высокотехнологичных производств телевизионной,медицинской и других видов техники', 7, 30, 150000000, 60, 72, 3500000, 25, 3,
+            'Описание: выпуск LCD телевизоров и медицинской техники.Место реализации: г.Витебск, ул. П. Бровки, 13а.Форма участия инвестора: совместное предприятие на базе
+            существующего',
+            1, '2016-05-21' );
+
+
+
+            INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
+            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            createdDate)
+            VALUES (
+
+            'Строительство здания по производству пельменей, сырокопчёных и сыровяленых колбас', 8, 31, 1156778000, 60, 72, 10400000, 32, 1.670,
+            'организация производства сырокопченых, сыровяленых колбас и пельменей, созданного на основе современных технологий и оборудования; обеспечить удовлетворение спроса на производимую
+            продукцию, получение прибыли, расширение рынков сбыта; строительство производственного здания, приобретение современного высокотехнологического, энергосберегающего оборудования, монтажные и
+            пусконаладочные работы',
+            1, '2016-05-24'
+            );
+
+
+
+            INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
+            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            createdDate)
+            VALUES (
+
+            'Переработка рыбы на предприятии ОАО «Белрыба» ', 5, 30, 333677800, 36, 48, 2400000, 58.6, 4,
+            'инвестиционный проект предусматривает расширение рынков сбыта, оптимизация товарного ассортимента при максимилизации загрузки существующих мощностей
+            ',
+            1, '2016-05-28'
+            );
+
+
+
+            INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
+            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            createdDate)
+            VALUES (
+
+            'Техническое перевооружение участка по производству обуви строчечно-литьевого метода крепления', 4, 30, 103677800, 36, 48, 376400, 31, 3,
+            'необходимо приобрести 13 единиц технологического оборудования, в том числе 1 карусельный автомат для прямого прилива
+            двухслойной подошвы мод, которое позволит внедрить новые прогрессивные технологии в производство обуви, значительно улучшит
+            качество и внешний вид производимой продукции, что будет способствовать повышению конкурентоспособности продукции
+            предприятия как на внутреннем, так и на внешнем рынках, получению высокой добавленной стоимости',
+            1, '2016-05-29'
+            )
+        </sql>
+        <rollback>
+            DELETE FROM Project WHERE createdDate = '2016-05-15';
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

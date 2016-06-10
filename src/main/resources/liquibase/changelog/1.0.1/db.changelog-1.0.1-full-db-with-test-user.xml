@@ -7,7 +7,7 @@
     <changeSet author="AlexanderRudnik" id="full-db-with-test-user">
         <sql>
             INSERT INTO User(firstName, surname, password, email, phoneNumber, city, isEnabled, isAdmin) VALUE (
-                'Alexander', 'Rudnik', SHA1('adminalex'), 'admin@tut.by', '80333100172', 'Minsk', 1, 1
+                'Vladislav', 'Ilkovets', SHA1('admin'), 'admin@tut.by', '80333100172', 'Hrodno', 1, 1
             )
         </sql>
         <rollback>

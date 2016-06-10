@@ -13,9 +13,7 @@ import by.grsu.smart.project.service.user.UserService;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,7 +47,6 @@ public class SmartProjectController {
         currencies.add(currencyService.getEURCurrencyExchange());
         currencies.add(currencyService.getRUBCurrencyExchange());
         params.put("currencyExchange", currencies);
-//        params.put("currencyExchange", currencyService.getCurrencyExchange());
         List<Metal> metals = metalService.getMetalCost();
 
         Iterator<Metal> metalIterator = metals.iterator();
@@ -61,9 +58,6 @@ public class SmartProjectController {
         }
 
         params.put("ingotsPrices", metals);
-//        params.put("USD", currencyService.getUSDCurrencyExchange());
-//        params.put("EUR", currencyService.getEURCurrencyExchange());
-//        params.put("RUB", currencyService.getRUBCurrencyExchange());
 
         return new ModelAndView("main", params);
     }
@@ -77,6 +71,7 @@ public class SmartProjectController {
     @RequestMapping(value = "/repository", method = RequestMethod.GET)
     public ModelAndView repositoryPage() {
         logger.info("Direct to repository page");
+        System.out.println(projectService.getLatestProjects());
         return new ModelAndView("projectRepository", "projects", projectService.getLatestProjects());
     }
 
@@ -98,16 +93,54 @@ public class SmartProjectController {
         return "login";
     }
 
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public String login(HttpServletRequest request) {
+        String userEmail = request.getParameter("userEmail");
+        String password = request.getParameter("password");
+
+        User user = new User(userEmail, password);
+
+        if (userService.getUser(user) != null) {
+            request.getSession().setAttribute("user", user);
+            return "redirect:main";
+        }
+
+        return "redirect:login?error=true";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+        request.getSession().removeAttribute("user");
+        return "redirect:main";
+    }
+
     @RequestMapping(value = "/registry", method = RequestMethod.GET)
     public String registryPage() {
         logger.info("Direct to registry page");
         return "registry";
     }
 
-    @RequestMapping(value = "/private", method = RequestMethod.GET)
-    public String privateRoomPage() {
-        logger.info("");
-        return "privateRoom";
+    @RequestMapping(value = "/privateRoom", method = RequestMethod.GET)
+    public ModelAndView privateRoomPage(HttpServletRequest request) {
+        logger.info("Welcome to private room");
+        User user = (User) request.getSession().getAttribute("user");
+
+        return new ModelAndView("privateRoom", "userDetails", user);
+    }
+
+    @RequestMapping(value = "/privateRoom", method = RequestMethod.POST)
+    public String privateRoomChange(HttpServletRequest request) {
+        logger.info("Welcome to private room");
+        User user = (User) request.getSession().getAttribute("user");
+        user.setFirstName(request.getParameter("firstNameInput"));
+        user.setSurname(request.getParameter("surnameInput"));
+        user.setPhoneNumber(request.getParameter("phoneInput"));
+
+        userService.updateUser(user);
+
+        request.getSession().setAttribute("user", user);
+
+        return "redirect:privateRoom";
     }
 
     @RequestMapping(value = "/project/{projectId}", method = RequestMethod.GET)
@@ -121,9 +154,10 @@ public class SmartProjectController {
     public String getProjectParams(@RequestParam("params") String params,
                                    @RequestParam("calculationHorizon") Integer calculationHorizon,
                                    @RequestParam("bettingShopDiscount") Double bettingShopDiscount,
-                                   @RequestParam("investedCapital") Double investedCapital) {
+                                   @RequestParam("investedCapital") Double investedCapital,
+                                   @RequestParam("investedCapitalMonth") Integer investedCapitalMonth) {
         List<CalculationResponse> responses = projectService.calculateProjectParams(calculationHorizon, bettingShopDiscount, investedCapital, parseRequestJSON(params));
-        Project project = projectService.calculateProject(calculationHorizon, bettingShopDiscount, investedCapital, responses);
+        Project project = projectService.calculateProject(calculationHorizon, bettingShopDiscount, investedCapital, investedCapitalMonth, responses);
 
         Map<String, Object> map = new HashMap<>(2);
         map.put("attribute", responses);
@@ -145,7 +179,7 @@ public class SmartProjectController {
             e.printStackTrace();
         }
 
-        System.out.println(requests);
+//        return new ModelAndView("redirect:projectRepository", "projects", requests);
 
         return getJSONString(projectService.findProject(requests));
     }
@@ -163,6 +197,21 @@ public class SmartProjectController {
         userService.saveUser(new User(email, password));
 
         return "main";
+    }
+
+    @RequestMapping(value = "saveProject", method = RequestMethod.GET)
+    public String saveProject(@RequestParam("params") String params,
+                              @RequestParam("calculationHorizon") Integer calculationHorizon,
+                              @RequestParam("bettingShopDiscount") Double bettingShopDiscount,
+                              @RequestParam("investedCapital") Double investedCapital,
+                              @RequestParam("investedCapitalMonth") Integer investedCapitalMonth) {
+
+        List<CalculationResponse> responses = projectService.calculateProjectParams(calculationHorizon, bettingShopDiscount, investedCapital, parseRequestJSON(params));
+        Project project = projectService.calculateProject(calculationHorizon, bettingShopDiscount, investedCapital, investedCapitalMonth, responses);
+
+        projectService.saveProject(project);
+
+        return "redirect:repository";
     }
 
     private String getJSONString(Object value) {

@@ -20,7 +20,7 @@ public class User {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
-        this.firstName = "firstName";
+        this.firstName = "Unnamed";
         this.surname = "surname";
         this.phoneNumber = "911";
         this.city = "Hrodno";
@@ -109,5 +109,20 @@ public class User {
 
     public void setDeleted(Boolean deleted) {
         isDeleted = deleted;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", city='" + city + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", isDeleted=" + isDeleted +
+                '}';
     }
 }
