@@ -5,7 +5,7 @@
     <include file="changelog/1.0.0/db.changelog-1.0.0-create-project-database.xml" relativeToChangelogFile="true"/>
     <include file="changelog/1.0.0/db.changelog-1.0.0-create-user-table.xml" relativeToChangelogFile="true"/>
     <include file="changelog/1.0.0/db.changelog-1.0.0-create-project-table.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/1.0.2/1.0.2-create-user-roles-table.xml" relativeToChangelogFile="true"/>
+    <!--<include file="changelog/1.0.2/1.0.2-create-user-roles-table.xml" relativeToChangelogFile="true"/>-->
 
     <include file="changelog/1.0.1/db.changelog-1.0.1-full-db-with-test-user.xml" relativeToChangelogFile="true"/>
     <include file="changelog/1.0.1/db.changelog-1.0.1-full-db-with-test-projects.xml" relativeToChangelogFile="true"/>
