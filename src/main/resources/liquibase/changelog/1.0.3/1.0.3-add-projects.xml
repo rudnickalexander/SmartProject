@@ -7,7 +7,7 @@
     <changeSet author="AlexanderRudnik" id="add-projects">
         <sql>
             INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
-            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            dynamicPaybackPeriod, netPresentValue, internalRateOfReturn, profitabilityIndex, description, userId,
             createdDate)
             VALUES (
 
@@ -19,7 +19,7 @@
 
 
             INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
-            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            dynamicPaybackPeriod, netPresentValue, internalRateOfReturn, profitabilityIndex, description, userId,
             createdDate)
             VALUES (
 
@@ -33,7 +33,7 @@
 
 
             INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
-            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            dynamicPaybackPeriod, netPresentValue, internalRateOfReturn, profitabilityIndex, description, userId,
             createdDate)
             VALUES (
 
@@ -46,7 +46,7 @@
 
 
             INSERT INTO Project (name, calculationHorizon, bettingShopDiscount, investedCapital, simplePaybackPeriod,
-            dynamicPaybackPeriod, b, internalRateOfReturn, profitabilityIndex, description, userId,
+            dynamicPaybackPeriod, netPresentValue, internalRateOfReturn, profitabilityIndex, description, userId,
             createdDate)
             VALUES (
 

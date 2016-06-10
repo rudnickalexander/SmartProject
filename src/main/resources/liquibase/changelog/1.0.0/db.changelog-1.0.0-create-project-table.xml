@@ -15,7 +15,7 @@
             simplePaybackPeriod INT(10) NOT NULL,
             dynamicPaybackPeriod INT(10) NOT NULL,
 
-            b float(20) NOT NULL,
+            netPresentValue float(20) NOT NULL,
             internalRateOfReturn float(20) NOT NULL,
             profitabilityIndex float(20) NOT NULL,
 
