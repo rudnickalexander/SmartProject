@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=cp1251" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1251" />
     <link href="<c:url value="/static/styles/bootstrap-theme.min.css" />" rel="stylesheet">
     <link href="<c:url value="/static/styles/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/static/styles/style.css" />" rel="stylesheet">
@@ -17,32 +17,32 @@
 <div class="container-fluid">
     <div class="col-sm-3">
         <div id="param">
-            <div class="h3">Параметры поиска</div>
+            <div class="h3">РџР°СЂР°РјРµС‚СЂС‹ РїРѕРёСЃРєР°</div>
             <div class="search-param">
-                <div class="h4">Простой период окупаемости</div>
-                <label for="sPPInputFrom" class="line">От</label>
+                <div class="h4">РџСЂРѕСЃС‚РѕР№ РїРµСЂРёРѕРґ РѕРєСѓРїР°РµРјРѕСЃС‚Рё</div>
+                <label for="sPPInputFrom" class="line">РћС‚</label>
                 <input id="sPPInputFrom" class="line request-param" type="text"/>
-                <label for="sPPInputTo" class="line">До</label>
+                <label for="sPPInputTo" class="line">Р”Рѕ</label>
                 <input id="sPPInputTo" type="text" class="line request-param"/>
-                <label style="font-size: 14px">мес</label>
+                <label style="font-size: 14px">РјРµСЃ</label>
             </div>
             <div class="search-param">
-                <div class="h4">Динамический период окупаемости</div>
-                <label for="dPPInputFrom">От</label>
+                <div class="h4">Р”РёРЅР°РјРёС‡РµСЃРєРёР№ РїРµСЂРёРѕРґ РѕРєСѓРїР°РµРјРѕСЃС‚Рё</div>
+                <label for="dPPInputFrom">РћС‚</label>
                 <input id="dPPInputFrom" class="line request-param" type="text"/>
-                <label for="dPPInputTo">До</label>
+                <label for="dPPInputTo">Р”Рѕ</label>
                 <input id="dPPInputTo" class="line request-param" type="text" />
-                <label style="font-size: 14px">мес</label>
+                <label style="font-size: 14px">РјРµСЃ</label>
             </div>
             <div class="search-param">
-                <div class="h4">Чистый дисконтированный доход</div>
-                <label for="pIInputFrom">От</label>
+                <div class="h4">Р§РёСЃС‚С‹Р№ РґРёСЃРєРѕРЅС‚РёСЂРѕРІР°РЅРЅС‹Р№ РґРѕС…РѕРґ</div>
+                <label for="pIInputFrom">РћС‚</label>
                 <input id="pIInputFrom" class="line request-param" type="text"/>
-                <label for="pIInputTo">До</label>
+                <label for="pIInputTo">Р”Рѕ</label>
                 <input id="pIInputTo" class="line request-param" type="text" />
-                <label style="font-size: 14px">руб</label>
+                <label style="font-size: 14px">СЂСѓР±</label>
             </div>
-            <input id="searchButton" type="button" class="btn btn-success col-sm-offset-5" value="Поиск"/>
+            <input id="searchButton" type="button" class="btn btn-success col-sm-offset-5" value="РџРѕРёСЃРє"/>
         </div>
     </div>
     <div class="col-sm-9">
