@@ -109,6 +109,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             url: 'project/' + projectId + '.json',
+            contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             cache: false,
             async: false,
@@ -186,6 +187,7 @@ $(document).ready(function () {
                     type: 'GET',
                     url: 'project/' + projectId + '.json',
                     dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
                     cache: false,
                     async: false,
                     success: function (data) {
@@ -266,46 +268,6 @@ $(document).ready(function () {
                 }
             },
             success: function (data) {
-                // var attribute = data.attribute;
-                // var index = 0;
-                //
-                // var fourthColumn = undefined;
-                // var fifthColumn = undefined;
-                // var sixthColumn = undefined;
-                // var seventhColumn = undefined;
-                // var eColumn = undefined;
-                // var fColumn = undefined;
-                // var gColumn = undefined;
-                //
-                // $('#projectParams').find('tbody tr').each(function(){
-                //     fourthColumn = $(this).find('td:eq(3)');
-                //     fifthColumn = $(this).find('td:eq(4)');
-                //     sixthColumn = $(this).find('td:eq(5)');
-                //     seventhColumn = $(this).find('td:eq(6)');
-                //     eColumn = $(this).find('td:eq(7)');
-                //     fColumn = $(this).find('td:eq(8)');
-                //     gColumn = $(this).find('td:eq(9)');
-                //
-                //     fourthColumn.text(attribute[index].a);
-                //     fifthColumn.text(attribute[index].b);
-                //     sixthColumn.text(attribute[index].c);
-                //     seventhColumn.text(attribute[index].d);
-                //     eColumn.text(attribute[index].e);
-                //     fColumn.text(attribute[index].f);
-                //     gColumn.text(attribute[index].g);
-                //
-                //     index++;
-                // });
-                //
-                // var project = data.project;
-                //
-                // var $projectTable = $('#projectTable');
-                //
-                // $projectTable.find('tbody tr:eq(0)').find('td:eq(1)').text(project.netPresentValue);
-                // $projectTable.find('tbody tr:eq(1)').find('td:eq(1)').text(project.internalRateOfReturn);
-                // $projectTable.find('tbody tr:eq(2)').find('td:eq(1)').text(project.profitabilityIndex);
-                // $projectTable.find('tbody tr:eq(3)').find('td:eq(1)').text(project.simplePaybackPeriod);
-                // $projectTable.find('tbody tr:eq(4)').find('td:eq(1)').text(project.dynamicPaybackPeriod);
             },
             error: function (data) {
                 data.preventDefault();
