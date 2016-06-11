@@ -109,7 +109,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             url: 'project/' + projectId + '.json',
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json; charset=cp1251',
             dataType: 'json',
             cache: false,
             async: false,
