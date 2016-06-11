@@ -3,13 +3,13 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=cp1251" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="<c:url value="/static/styles/bootstrap-theme.min.css" />" rel="stylesheet">
     <link href="<c:url value="/static/styles/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/static/styles/style.css" />" rel="stylesheet">
-    <script src="<c:url value="/static/scripts/libs/jquery-1.12.1.min.js" />"></script>
-    <script src="<c:url value="/static/scripts/libs/bootstrap.min.js" />"></script>
-    <script src="<c:url value="/static/scripts/smartProject.js" />"></script>
+    <script src="<c:url value="/static/scripts/libs/jquery-1.12.1.min.js" />"charset="utf-8"></script>
+    <script src="<c:url value="/static/scripts/libs/bootstrap.min.js" />"charset="utf-8"></script>
+    <script src="<c:url value="/static/scripts/smartProject.js" />" charset="utf-8"></script>
     <title>Repository</title>
 </head>
 <body>
