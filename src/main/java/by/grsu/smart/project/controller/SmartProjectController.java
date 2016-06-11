@@ -71,7 +71,6 @@ public class SmartProjectController {
     @RequestMapping(value = "/repository", method = RequestMethod.GET)
     public ModelAndView repositoryPage() {
         logger.info("Direct to repository page");
-        System.out.println(projectService.getLatestProjects());
         return new ModelAndView("projectRepository", "projects", projectService.getLatestProjects());
     }
 
@@ -146,6 +145,7 @@ public class SmartProjectController {
     @RequestMapping(value = "/project/{projectId}", method = RequestMethod.GET)
     @ResponseBody
     public String getProject(@PathVariable("projectId") Long projectId) {
+        System.out.println(projectService.getProject(projectId));
         return getJSONString(projectService.getProject(projectId)) ;
     }
 
@@ -178,8 +178,6 @@ public class SmartProjectController {
             logger.error("Exception deserialization json - " + params, e);
             e.printStackTrace();
         }
-
-//        return new ModelAndView("redirect:projectRepository", "projects", requests);
 
         return getJSONString(projectService.findProject(requests));
     }
