@@ -143,7 +143,7 @@ public class SmartProjectController {
         return "redirect:privateRoom";
     }
 
-    @RequestMapping(value = "/project/{projectId}", method = RequestMethod.GET, produces = "charset=UTF-8")
+    @RequestMapping(value = "/project/{projectId}", method = RequestMethod.GET)
     @ResponseBody
     public String getProject(@PathVariable("projectId") Long projectId) {
         return getJSONString(projectService.getProject(projectId)) ;
