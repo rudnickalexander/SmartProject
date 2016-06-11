@@ -125,6 +125,8 @@ $(document).ready(function () {
                 $('#internalRateOfReturnModal').html(data.internalRateOfReturn);
                 $('#profitabilityIndexModal').html(data.profitabilityIndex);
                 $('#npv').html(data.netPresentValue);
+
+                console.log($('#modalDescription').html(data.description));
             },
             error: function (data) {
                 data.preventDefault();
