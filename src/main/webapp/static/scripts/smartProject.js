@@ -126,7 +126,7 @@ $(document).ready(function () {
                 $('#profitabilityIndexModal').html(data.profitabilityIndex);
                 $('#npv').html(data.netPresentValue);
 
-                console.log($('#modalDescription').html(data.description));
+                console.log(data.description);
             },
             error: function (data) {
                 data.preventDefault();
