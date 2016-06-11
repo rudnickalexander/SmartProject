@@ -100,7 +100,7 @@ public class SmartProjectController {
         User user = new User(userEmail, password);
 
         if (userService.getUser(user) != null) {
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("user", userService.getUser(user));
             return "redirect:main";
         }
 
@@ -198,14 +198,22 @@ public class SmartProjectController {
     }
 
     @RequestMapping(value = "saveProject", method = RequestMethod.GET)
-    public String saveProject(@RequestParam("params") String params,
+    public String saveProject(HttpServletRequest request,
+                                @RequestParam("params") String params,
                               @RequestParam("calculationHorizon") Integer calculationHorizon,
                               @RequestParam("bettingShopDiscount") Double bettingShopDiscount,
                               @RequestParam("investedCapital") Double investedCapital,
-                              @RequestParam("investedCapitalMonth") Integer investedCapitalMonth) {
+                              @RequestParam("investedCapitalMonth") Integer investedCapitalMonth,
+                              @RequestParam("projectName") String projectName) {
 
         List<CalculationResponse> responses = projectService.calculateProjectParams(calculationHorizon, bettingShopDiscount, investedCapital, parseRequestJSON(params));
         Project project = projectService.calculateProject(calculationHorizon, bettingShopDiscount, investedCapital, investedCapitalMonth, responses);
+        User user = (User) request.getSession().getAttribute("user");
+
+        System.out.println(user);
+
+        project.setUser(user);
+        project.setName(projectName);
 
         projectService.saveProject(project);
 

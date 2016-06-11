@@ -46,8 +46,6 @@ $(document).ready(function () {
                 bettingShopDiscount: Number($('#bettingShopDiscount').val()),
                 investedCapital: $('#investedCapital').val(),
                 investedCapitalMonth: Number($('#investedCapitalMonth').val())
-                
-
             },
             beforeSend: function (xhr) {
                 if ($('#calculationForm')[0].checkValidity() === false) {
@@ -259,7 +257,8 @@ $(document).ready(function () {
                 calculationHorizon: Number($('#calculationHorizon').val()),
                 bettingShopDiscount: Number($('#bettingShopDiscount').val()),
                 investedCapital: $('#investedCapital').val(),
-                investedCapitalMonth: Number($('#investedCapitalMonth').val())
+                investedCapitalMonth: Number($('#investedCapitalMonth').val()),
+                projectName: $('#projectName').val()
 
 
             },

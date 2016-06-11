@@ -56,6 +56,8 @@ public class Project {
 
     public Project(Integer calculationHorizon, Double bettingShopDiscount, Double investedCapital, Integer simplePaybackPeriod,
                    Integer dynamicPaybackPeriod, Double netPresentValue, Double internalRateOfReturn, Double profitabilityIndex) {
+        this.name = "unnamed";
+        this.description = "";
         this.calculationHorizon = calculationHorizon;
         this.bettingShopDiscount = bettingShopDiscount;
         this.investedCapital = investedCapital;
@@ -64,6 +66,7 @@ public class Project {
         this.netPresentValue = netPresentValue;
         this.internalRateOfReturn = internalRateOfReturn;
         this.profitabilityIndex = profitabilityIndex;
+        this.createdDate = new Date();
     }
 
     public Project(Long id, String name, Integer calculationHorizon, Double bettingShopDiscount, Double investedCapital,
