@@ -53,12 +53,12 @@ public class ProjectDAOImpl extends BaseDAO implements ProjectDAO {
                                     "and p.netPresentValue <= :pIT";
 
         Query query = sessionFactory.getCurrentSession().createQuery(queryString);
-        query.setParameter("sPPF", params.get(0) == null ? -1 : params.get(0).intValue());
+        query.setParameter("sPPF", params.get(0) == null ? 0 : params.get(0).intValue());
         query.setParameter("sPPT", params.get(1) == null ? 9999 : params.get(1).intValue());
-        query.setParameter("dPPF", params.get(2) == null ? -1 : params.get(2).intValue());
+        query.setParameter("dPPF", params.get(2) == null ? 0 : params.get(2).intValue());
         query.setParameter("dPPT", params.get(3) == null ? 9999 : params.get(3).intValue());
-        query.setParameter("pIF", params.get(4) == null ? -1 : params.get(4));
-        query.setParameter("pIT", params.get(5) == null ? 9999 : params.get(5));
+        query.setParameter("pIF", params.get(4) == null ? 0 : params.get(4));
+        query.setParameter("pIT", params.get(5) == null ? 999999999 : params.get(5));
 
         return query.list();
     }
