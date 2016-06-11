@@ -70,28 +70,23 @@
     <div class="container-fluid col-sm-4">
         <div class="h4">Новости</div>
             <div class="news">
-                <a href="http://finatica.by/news/33261-kitayskie-kompanii-postroyat-16-social/">
-                    Китайские компании построят 16 социальных домов в Беларуси
+                <a href="http://news.tut.by/economics/500013.html">
+                    Ставки вниз: Нацбанк снижает ставку рефинансирования еще на 2 пункта
                 </a>
             </div>
             <div class="news">
-                <a href="http://finatica.by/news/33256-11-maya-v-belarusi-nachnutsya-repeticii-par/">
-                    11 мая в Беларуси начнутся репетиции парада к 3 июля
+                <a href="http://news.tut.by/economics/500050.html">
+                    Экс-директора Могилевского вагонзавода обвиняют в получении взятки в 759 тысяч долларов
                 </a>
             </div>
             <div class="news">
-                <a href="http://finatica.by/news/33251-opros-deyatelnost-putina-sootvetst/">
-                    Опрос: Деятельность Путина соответствует ожиданиям большинства россиян
+                <a href="http://finance.tut.by/news500023.html">
+                    С начала года цены в Беларуси выросли на 7%
                 </a>
             </div>
             <div class="news">
-                <a href="http://finatica.by/news/33168-v-minske-povysheny-stavki-naloga-na-sda/">
-                    В Минске повышены ставки налога на сдачу в аренду жилья и гаражей
-                </a>
-            </div>
-            <div class="news">
-                <a href="http://finatica.by/news/33165-v-blizhayshee-vremya-mintorgu-smenyat-naz/">
-                    В ближайшее время Минторгу сменят название и наделят новыми функциями
+                <a href="http://news.tut.by/economics/499895.html">
+                    Виновна, но свободна. Шарейко освобождена в зале суда
                 </a>
             </div>
     </div>
